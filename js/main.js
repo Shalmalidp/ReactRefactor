@@ -1,23 +1,30 @@
 import $ from 'jquery';
+import React from 'react';
+import ReactDom from 'react-dom';
+
 import _ from 'underscore';
 import moment from 'moment';
 import Backbone from 'backbone';
-import parse from './parse_auth';
+import './ajax_setup';
+
 import {TodoCollection} from './resources';
 import {TodoView} from './views';
 
-$.ajaxSetup({
-  headers: {
-    'X-Parse-Application-Id': parse.APP_ID,
-    'X-Parse-REST-API-Key': parse.API_KEY
-  }
-});
+	//grabbing the Wrapper DIV to display JSX usung react
+let appElement = document.querySelector('.wrapper');
 
 let todos = new TodoCollection();
 
+render(component){
+	ReactDOM(component,this.el);
+};
+
+
+
 todos.fetch().then(function() {
   
-  $('.wrapper').html(new TodoView(todos).render().$el);
+
+  //$('.wrapper').html(new TodoView(todos).render().$el);
 
 });
 

@@ -1,8 +1,8 @@
-const APP_ID = 'mmoMgOQzCeRE8Ad4vmRkHMLYyTwEPPrAGXMEfDFm';
-const API_KEY = 'xvocUSdI55mrUV7m7fb0ylyXO2kQ6EML2mlBDEoY';
-const APP_URL = 'https://api.parse.com/1/classes/Todo';
+const APP_ID  = '5XNj8VsQgGBZ1k8TAeTrW30OEoB3Tmh2fsjzsr6R';
+const API_KEY = 'DVhBlkNVHzkLJwboXh05ioU0fERzJlj9mvPcUiS6';
+const APP_URL = 'https://api.parse.com/1/classes/Moviestowatch';
 
-export default {
+export{
   APP_ID,
   API_KEY,
   APP_URL

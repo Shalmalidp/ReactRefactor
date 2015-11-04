@@ -7,6 +7,24 @@ var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+var _parse_auth = require('./parse_auth');
+
+_jquery2['default'].ajaxSetup({
+  headers: {
+    'X-Parse-Application-Id': _parse_auth.APP_ID,
+    'X-Parse-REST-API-Key': _parse_auth.API_KEY
+  }
+});
+
+},{"./parse_auth":3,"jquery":11}],2:[function(require,module,exports){
+'use strict';
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
 var _underscore = require('underscore');
 
 var _underscore2 = _interopRequireDefault(_underscore);
@@ -19,20 +37,11 @@ var _backbone = require('backbone');
 
 var _backbone2 = _interopRequireDefault(_backbone);
 
-var _parse_auth = require('./parse_auth');
-
-var _parse_auth2 = _interopRequireDefault(_parse_auth);
+require('./ajax_setup');
 
 var _resources = require('./resources');
 
 var _views = require('./views');
-
-_jquery2['default'].ajaxSetup({
-  headers: {
-    'X-Parse-Application-Id': _parse_auth2['default'].APP_ID,
-    'X-Parse-REST-API-Key': _parse_auth2['default'].API_KEY
-  }
-});
 
 var todos = new _resources.TodoCollection();
 
@@ -43,24 +52,21 @@ todos.fetch().then(function () {
 
 console.log('Hello, World');
 
-},{"./parse_auth":2,"./resources":3,"./views":6,"backbone":8,"jquery":10,"moment":11,"underscore":12}],2:[function(require,module,exports){
+},{"./ajax_setup":1,"./resources":4,"./views":7,"backbone":9,"jquery":11,"moment":12,"underscore":13}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var APP_ID = 'mmoMgOQzCeRE8Ad4vmRkHMLYyTwEPPrAGXMEfDFm';
-var API_KEY = 'xvocUSdI55mrUV7m7fb0ylyXO2kQ6EML2mlBDEoY';
-var APP_URL = 'https://api.parse.com/1/classes/Todo';
+var APP_ID = '5XNj8VsQgGBZ1k8TAeTrW30OEoB3Tmh2fsjzsr6R';
+var API_KEY = 'DVhBlkNVHzkLJwboXh05ioU0fERzJlj9mvPcUiS6';
+var APP_URL = 'https://api.parse.com/1/classes/Moviestowatch';
 
-exports['default'] = {
-  APP_ID: APP_ID,
-  API_KEY: API_KEY,
-  APP_URL: APP_URL
-};
-module.exports = exports['default'];
+exports.APP_ID = APP_ID;
+exports.API_KEY = API_KEY;
+exports.APP_URL = APP_URL;
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -80,7 +86,7 @@ var _todo_collection2 = _interopRequireDefault(_todo_collection);
 exports.TodoModel = _todo_model2['default'];
 exports.TodoCollection = _todo_collection2['default'];
 
-},{"./todo_collection":4,"./todo_model":5}],4:[function(require,module,exports){
+},{"./todo_collection":5,"./todo_model":6}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -110,7 +116,7 @@ var TodoCollection = _backbone2['default'].Collection.extend({
 exports['default'] = TodoCollection;
 module.exports = exports['default'];
 
-},{"../parse_auth":2,"./todo_model":5,"backbone":8}],5:[function(require,module,exports){
+},{"../parse_auth":3,"./todo_model":6,"backbone":9}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -136,7 +142,7 @@ var TodoModel = _backbone2['default'].Model.extend({
 exports['default'] = TodoModel;
 module.exports = exports['default'];
 
-},{"../parse_auth":2,"backbone":8}],6:[function(require,module,exports){
+},{"../parse_auth":3,"backbone":9}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -151,7 +157,7 @@ var _todo2 = _interopRequireDefault(_todo);
 
 exports.TodoView = _todo2['default'];
 
-},{"./todo":7}],7:[function(require,module,exports){
+},{"./todo":8}],8:[function(require,module,exports){
 // Obviously we are using jquery
 'use strict';
 
@@ -336,7 +342,7 @@ View.prototype = {
 exports['default'] = View;
 module.exports = exports['default'];
 
-},{"jquery":10,"jquery-serializejson":9}],8:[function(require,module,exports){
+},{"jquery":11,"jquery-serializejson":10}],9:[function(require,module,exports){
 (function (global){
 //     Backbone.js 1.2.3
 
@@ -2235,7 +2241,7 @@ module.exports = exports['default'];
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"jquery":10,"underscore":12}],9:[function(require,module,exports){
+},{"jquery":11,"underscore":13}],10:[function(require,module,exports){
 /*!
   SerializeJSON jQuery plugin.
   https://github.com/marioizquierdo/jquery.serializeJSON
@@ -2514,7 +2520,7 @@ module.exports = exports['default'];
 
 }));
 
-},{"jquery":10}],10:[function(require,module,exports){
+},{"jquery":11}],11:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -11726,7 +11732,7 @@ return jQuery;
 
 }));
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 //! moment.js
 //! version : 2.10.6
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
@@ -14922,7 +14928,7 @@ return jQuery;
     return _moment;
 
 }));
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -16472,7 +16478,7 @@ return jQuery;
   }
 }.call(this));
 
-},{}]},{},[1])
+},{}]},{},[2])
 
 
 //# sourceMappingURL=main.js.map
