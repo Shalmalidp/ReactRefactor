@@ -9,24 +9,23 @@ import './ajax_setup';
 
 import {TodoCollection} from './resources';
 import {TodoView} from './views';
+import MovieTodoView from './views/movietodo_view';
 
-	//grabbing the Wrapper DIV to display JSX usung react
-let appElement = document.querySelector('.wrapper');
+//grabbing the Wrapper DIV to display JSX usung react
+let el = document.querySelector('.wrapper');
 
 let todos = new TodoCollection();
 
-render(component){
-	ReactDOM(component,this.el);
-};
+ReactDom.render();
 
 
 
-todos.fetch().then(function() {
+//todos.fetch().then(function() {
   
 
   //$('.wrapper').html(new TodoView(todos).render().$el);
 
-});
+//});
 
 
-console.log('Hello, World');
+// console.log('Hello, World');
